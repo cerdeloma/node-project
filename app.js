@@ -1,9 +1,13 @@
 const express = require('express');
 const userRoutes = require('./src/routes/user.routes');
 const errorHandler = require('./src/middlewares/error.middleware');
+const connectDB = require('./src/config/db');
 
 const app = express();
 app.use(express.json());
+
+// Conectar ao banco (vai falhar se não tiver MONGO_URI, mas já está preparado)
+// connectDB();
 
 // Rotas
 app.get('/', (req, res) => {
